@@ -10,13 +10,16 @@ const pool = new Pool({
 
 const connectDB = async () => {
   try {
-    const client = await pool.connect();    // Ensure 'college' column exists for existing tables
+    const client = await pool.connect();
+    console.log('PostgreSQL Database Connected');
+    
+    // 1. Initialize tables first
+    await initializeTables();
+    
+    // 2. Then perform alterations
     await pool.query(`ALTER TABLE doctors ADD COLUMN IF NOT EXISTS college TEXT DEFAULT ''`);
 
-    console.log('PostgreSQL Database Connected');
-
     client.release();
-    await initializeTables();
   } catch (error) {
     console.error('Database connection error:', error);
     process.exit(1);
