@@ -47,16 +47,25 @@ const DoctorAppointments = () => {
             <p className='max-sm:hidden'>{calculateAge(item.userData.dob)}</p>
             <p>{slotDateFormat(item.slotDate)}, {item.slotTime}</p>
             <p>{currencySymbol}{item.amount}</p>
-            {item.cancelled
-              ? <p className='text-red-400 text-xs font-medium'>Cancelled</p>
-              : item.is_completed
-                ? <p className='text-green-500 text-xs font-medium'>Completed</p>
-                : <div className='flex gap-2 items-center'>
-                    <img onClick={() => navigate(`/doctor-chat/${item.user_id}`, { state: { patient: item.userData } })} className='w-8 h-8 cursor-pointer hover:scale-110 transition-all' src={assets.chats_icon} title="Chat with Patient" alt="chat" />
-                    <img onClick={() => cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="" />
-                    <img onClick={() => completeAppointment(item._id)} className='w-10 cursor-pointer' src={assets.tick_icon} alt="" />
-                  </div>
-            }
+            {!item.cancelled && (
+              <div className='flex gap-2 items-center'>
+                <img onClick={() => navigate(`/doctor-chat/${item.user_id}`, { state: { patient: item.userData } })} 
+                     className='w-8 h-8 cursor-pointer hover:scale-110 transition-all filter-primary' 
+                     src={assets.chats_icon} 
+                     title="Chat with Patient" 
+                     alt="chat" />
+                {item.is_completed 
+                  ? <p className='text-green-500 text-xs font-medium'>Completed</p>
+                  : (
+                    <>
+                      <img onClick={() => cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="cancel" />
+                      <img onClick={() => completeAppointment(item._id)} className='w-10 cursor-pointer' src={assets.tick_icon} alt="complete" />
+                    </>
+                  )
+                }
+              </div>
+            )}
+            {item.cancelled && <p className='text-red-400 text-xs font-medium'>Cancelled</p>}
           </div>
         ))}
       </div>
