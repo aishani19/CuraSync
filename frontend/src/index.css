@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --navy-bg: #0A1628;
+    --teal-accent: #00D4AA;
+    --soft-white: #F8FAFF;
+    --primary-font: 'Plus Jakarta Sans', sans-serif;
+    --secondary-font: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--soft-white);
+    color: #1e293b;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: var(--primary-font);
+}
+
+p, span, div {
+    font-family: var(--secondary-font);
+}
+
+/* Glassmorphism utility */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-light {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradients */
+.hero-gradient {
+    background: linear-gradient(135deg, #0A1628 0%, #1e1b4b 50%, #312e81 100%);
+}
+
+.teal-gradient-text {
+    background: linear-gradient(to right, #00D4AA, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.glow-teal {
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--teal-accent);
+    border-radius: 10px;
+}
+
+/* 3D Tilt Effect Classes */
+.tilt-card {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(2deg) translateY(-10px);
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes sync-loader {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-wave {
+  animation: wave 1s ease-in-out infinite;
+}
+
+.animate-sync-loader {
+  animation: sync-loader 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
