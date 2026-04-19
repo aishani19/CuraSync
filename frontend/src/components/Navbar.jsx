@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
+import { DoctorContext } from '../context/DoctorContext'
 
 const Navbar = () => {
   const navigate = useNavigate()
-  const { token, setToken, dToken, setDToken } = useContext(AppContext)
+  const { token, setToken } = useContext(AppContext)
+  const { dToken, setDToken } = useContext(DoctorContext)
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
@@ -17,9 +19,9 @@ const Navbar = () => {
   }, [])
 
   const logout = () => {
-    setToken(false)
+    setToken('')
     localStorage.removeItem('token')
-    setDToken(false)
+    setDToken('')
     localStorage.removeItem('dToken')
     navigate('/login')
   }
