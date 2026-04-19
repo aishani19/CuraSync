@@ -74,7 +74,11 @@ const Navbar = () => {
             Specialties
           </span>
           <NavLink to='/about' className='hover:text-[#00D4AA] transition-all uppercase'>About</NavLink>
-          <NavLink to='/contact' className='hover:text-[#00D4AA] transition-all uppercase'>Contact</NavLink>
+          {(token || dToken) && (
+            <NavLink to={token ? '/my-appointments' : '/doctor-appointments'} className='hover:text-[#00D4AA] transition-all uppercase'>
+              Appointments
+            </NavLink>
+          )}
         </ul>
 
         {/* Buttons */}

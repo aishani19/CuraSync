@@ -94,6 +94,12 @@ const MyProfile = () => {
                         </div>
                     </div>
 
+                    <div className='flex flex-wrap gap-4 mt-8'>
+                        <button onClick={() => navigate('/my-appointments')} className='bg-primary text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-primary/30 transition-all font-bold active:scale-95 flex items-center gap-2'>
+                           📅 View My Appointments
+                        </button>
+                    </div>
+
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 px-2'>
                         {/* Contact info column */}
                         <div className='bg-secondary rounded-2xl p-6'>
