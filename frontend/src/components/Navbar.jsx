@@ -80,18 +80,26 @@ const Navbar = () => {
         {/* Buttons */}
         <div className='flex items-center gap-4'>
           {token || dToken ? (
-            <button onClick={logout} className='bg-[#0A1628] text-white px-6 py-2.5 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all'>
-              LOGOUT
-            </button>
+            <div className='flex items-center gap-3'>
+              <button onClick={() => navigate(token ? '/my-profile' : '/doctor-profile')} 
+                      className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all border ${(isScrolled || !isHome) ? 'border-gray-200 text-gray-600 hover:bg-gray-50' : 'border-white/20 text-white hover:bg-white/10'}`}>
+                PROFILE
+              </button>
+              <button onClick={logout} className='bg-[#0A1628] text-white px-6 py-2.5 rounded-full text-xs font-bold hover:scale-105 active:scale-95 transition-all'>
+                LOGOUT
+              </button>
+            </div>
           ) : (
             <>
               <button onClick={() => navigate('/login')} className={`hidden sm:block text-xs font-bold transition-all ${(isScrolled || !isHome) ? 'text-gray-600 hover:text-[#00D4AA]' : 'text-gray-200 hover:text-white'}`}>
-                SIGN IN
+                LOGIN
               </button>
 
-              <button onClick={() => navigate('/login')} className='bg-[#00D4AA] text-[#0A1628] px-8 py-3 rounded-xl text-xs font-black shadow-lg glow-teal hover:scale-105 active:scale-95 transition-all'>
-                BOOK NOW
-              </button>
+              {location.pathname !== '/contact' && (
+                <button onClick={() => navigate('/login')} className='bg-[#00D4AA] text-[#0A1628] px-8 py-3 rounded-xl text-xs font-black shadow-lg glow-teal hover:scale-105 active:scale-95 transition-all'>
+                  BOOK NOW
+                </button>
+              )}
             </>
           )}
         </div>

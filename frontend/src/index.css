@@ -119,3 +119,13 @@ p, span, div {
 .animate-sync-loader {
   animation: sync-loader 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
+
+.magenta-gradient {
+    background: linear-gradient(135deg, #FF0080 0%, #7928CA 100%);
+    box-shadow: 0 10px 20px rgba(121, 40, 202, 0.3);
+}
+
+.teal-gradient {
+    background: linear-gradient(135deg, #00D4AA 0%, #00B4D8 100%);
+    box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+}
