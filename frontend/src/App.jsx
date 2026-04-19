@@ -34,7 +34,6 @@ const App = () => {
             <Route path='/blood-bank' element={<BloodBank />} />
             <Route path='/login' element={<div className='mx-4 sm:mx-[10%] pt-20'><Login /></div>} />
             <Route path='/about' element={<div className='mx-4 sm:mx-[10%] pt-20'><About /></div>} />
-            <Route path='/contact' element={<div className='mx-4 sm:mx-[10%] pt-20'><Contact /></div>} />
             <Route path='/my-profile' element={<div className='mx-4 sm:mx-[10%] pt-20'><MyProfile /></div>} />
             <Route path='/my-appointments' element={<div className='mx-4 sm:mx-[10%] pt-20'><MyAppointment /></div>} />
             <Route path='/appointment/:docId' element={<div className='mx-4 sm:mx-[10%] pt-20'><Appointment /></div>} />
