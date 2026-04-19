@@ -10,6 +10,7 @@ const AppContextProvider = (props) => {
 
     const [doctors, setDoctors] = useState([])
     const [token, setToken] = useState(localStorage.getItem('token') || '')
+    const [dToken, setDToken] = useState(localStorage.getItem('dToken') || '')
     const [userData, setUserData] = useState(false)
 
     const getDoctorsData = async () => {
@@ -93,6 +94,7 @@ const AppContextProvider = (props) => {
         currencySymbol,
         backendUrl,
         token, setToken,
+        dToken, setDToken,
         userData, setUserData, loadUserProfileData,
         calculateAge,
         slotDateFormat
