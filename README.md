@@ -135,7 +135,7 @@ CuraSync uses **PostgreSQL** as its relational database, chosen for:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/curasync.git
+   git clone https://github.com/aishani19/curasync.git
    cd curasync
    ```
 
